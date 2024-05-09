@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRS ChatGPT</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        textarea { width: 90%; margin: 10px 0; }
+        input[type="submit"] { padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <h1>PRS Compliance AI</h1>
+    <form action="/get_response" method="post">
+        <textarea name="user_input" rows="4" placeholder="Type your message here..."></textarea>
+        <br>
+        <input type="submit" id="sendButton" value="Send">
+    </form>
+
+    {% if user_input %}
+        <p><strong>You asked:</strong> {{ user_input }}</p>
+    {% endif %}
+    {% if chatgpt_response %}
+        <h2>Response:</h2>
+        <p>{{ chatgpt_response }}</p>
+    {% endif %}
+    {% if error %}
+        <p style="color: red;"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+</body>
+</html>
+
+
+
